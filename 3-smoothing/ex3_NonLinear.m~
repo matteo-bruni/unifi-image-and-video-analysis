@@ -1,0 +1,27 @@
+img = imread('disks.png');
+imgPoisson = imnoise(img, 'poisson');
+
+n=5;
+m=5;
+
+% Non Linear filtering
+imgOut_nl = nlfilter(double(imgPoisson), [n m], @myMedian);
+figure; 
+imshow(mat2gray(imgOut));
+
+d_3 = mse( double(imgOut(:) ) - double(img(:)))
+
+
+% Bilateral filtering
+imgOut = nlfilter(double(imgPoisson), [n m], @bilateral);
+figure; 
+imshow(mat2gray(imgOut));
+
+d_4 = mse( double(imgOut(:) ) - double(img(:)))
+
+
+% Median Filtering
+imgOut = medfilt2(imgPoisson, [n m]);
+figure; 
+imshow(imgOut);
+d_5 = mse( double(imgOut(:) ) - double(img(:)))
