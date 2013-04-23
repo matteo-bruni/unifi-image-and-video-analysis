@@ -23,3 +23,5 @@ w = w./sum(w(:));
 temp = inputData.*w;
 
 val = uint8(sum(temp(:)));
+
+

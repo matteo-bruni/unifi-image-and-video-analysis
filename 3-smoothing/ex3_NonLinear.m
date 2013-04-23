@@ -25,3 +25,5 @@ imgOut_med = medfilt2(double(imgPoisson), [n m]);
 figure; 
 imshow(mat2gray(imgOut_med));
 d_5 = mse( double(imgOut_med(:) ) - double(img(:)))
+
+% nb bilateral filter don't works with salt and pepper rumor
