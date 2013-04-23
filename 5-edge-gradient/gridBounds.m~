@@ -1,0 +1,20 @@
+function [ rMin, rMax, cMin, cMax ] = gridBounds( size, numGridRows, numGridCols, window )
+%GRIDBOUNDS Summary of this function goes here
+%   Detailed explanation goes here
+
+    row = size(1);
+    col = size(2);
+    
+    deltaH = round(row / numGridRows);
+    deltaW = round(cols / numGridCols)
+    
+    
+    gridCollIndex = mod(k, numGridCols);
+    rMin = 
+    rMax
+    cMin
+    cMax
+    
+    
+end
+

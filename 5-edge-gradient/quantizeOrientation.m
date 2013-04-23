@@ -1,0 +1,28 @@
+function [ imgQTheta ] = quantizeOrientation( imgTheta, nTheta )
+%QUANTIZEORIENTATION Summary of this function goes here
+%   Detailed explanation goes here
+
+baseTheta = pi/single(nTheta);
+imgQTheta = round(imgTheta ./ baseTheta);
+
+% map negative index valjes to poisitive values
+[row col] = find(imgQTheta < 0);
+
+% remove negative values 
+% avoid use of for cycle using sub2ind
+imgQTheta( sub2ind(size(imgQTheta), row, col) ) =  ...
+    imgQTheta(sub2ind( size(imgQTheta), row, col)) + nTheta;
+    
+    
+%map the nTheta index value to 0
+[row col] = find(imgQTheta == nTheta);
+imgQTheta( sub2ind(size(imgQTheta), row, col) ) = 0;
+
+% apply a [5 5] median filter to smooth the image
+imgQTheta = medfilt2(imgQTheta, [5, 5]);
+
+
+
+
+end
+
