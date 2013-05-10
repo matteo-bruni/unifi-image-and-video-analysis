@@ -42,8 +42,8 @@ queryNames = { 'hiero_02/01.png';
 'hiero_02/19.png';
 };
 
-numGridRows = 1;
-numGridCols = 1;
+numGridRows = 2;
+numGridCols = 2;
 nTheta = 6;
 
 for kQuery = 1:size(queryNames, 1)
