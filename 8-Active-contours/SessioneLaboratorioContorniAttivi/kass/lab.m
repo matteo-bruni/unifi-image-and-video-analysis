@@ -1,0 +1,10 @@
+I = imread('immaginiTest/stella.png');
+I = im2double(I);
+figure, imshow(I); [y,x] = getpts;
+P=[x(:) y(:)];
+Options=struct;
+Options.Verbose=true;
+Options.Iterations=700;
+Options.Wterm = 0;
+Options.Wline = 0;
+[O,J]=Snake2D(I,P,Options);
